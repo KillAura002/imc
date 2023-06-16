@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMC</title>
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bankdashboard.css">
+</head>
+
+<body> 
+    <div class="container">
+        
+
+        <div class="container-body">
+            
+
+            <div class="main-body">
+                <div class="headtittle">
+                    <h1>Calculadora de IMC</h1>
+  
+                    <div id="calculator">
+                      <label for="weight">Peso (kg):</label>
+                      <input type="number" id="weight" placeholder="Ingrese su peso">
+                      <br>
+                      <label for="height">Altura (cm):</label>
+                      <input type="number" id="height" placeholder="Ingrese su altura">
+                      
+                      <button onclick="calculateBMI()">Calcular IMC</button>
+                      
+                      <div id="result"></div>
+                    </div>
+                </div>
+
+                <div class="cards">
+                    <div class="row row-1">
+                        <div class="col">
+                            <div class="balance-card">
+                                <h3 class="cardtittle">PESO MASCULINO Y FEMENINO</h3>
+                                <img width="380px" height="220px" src="img/bar1.png" top="50px" left="50px" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="latest-activity">
+                                <h3 class="cardtittle">IMC MASCULINO</h3>
+                                <img width="450px" height="250px" src="img/graph4.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="debit-card">
+                                <h3 class="cardtittle">CATEGORIA IMC FEMENINO</h3>
+                                <img width="380px" height="220px" src="img/bar2.png" top="50px" left="50px" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row row-2">
+                        <div class="col">
+                            <div class="total-invoice">
+                            
+                                <img width="300px" height="120px" src="img/tab1.png" top="50px" left="50px" alt="">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="paid-invoice">
+                                <img width="330px" height="130px" src="img/tab1 1.png" top="50px" left="50px" alt="">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="unpaid-invoice">
+                                <img width="340px" height="200px" src="img/tab2.png" top="50px" left="50px" alt="">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="invoice-sent">
+                                <img width="380px" height="150px" src="img/bar2 2.png" top="50px" left="50px" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+    </div>
+            </div>
+            <div class="c*oncl">Concluciones
+                <p class="con">Angel: Prevalencia de sobbrepeso u obesidad: El estudio revela que la prevalencia conjunta de sobrepeso en los adolescentes  de las escuelas supera el 25%. Esto indica que una parte de los estudiantesPresenta problemas de exceso de peso lo que es alarmante y demuestra la magnitud de problema de obesidad en la poblacion.</p>
+                <p class="coc">Ximena: Prevalencia de bajo peso: El estudio tambien revela uno de cada 12 niños tiene bajo peso, esto indica que un pñorcentaje significativo de los adolescentes presentan bajo peso. </p>
+                <p class="coc">Uriel: Diferencias de genero: La prevalencia de bajo peso en obesidad son mas altos en los hombres esta diferencia de genero en el estado nutricional de los estudiantes sugiere que los varones púeden ser mas vulnerables a las consecuencias de  diferencias y excesos nutricionales </p>
+                <p class="coc">Maximiliano:Necesidad de programas de intervención: La alta prevalencia tanto de sobrepeso como de bajo peso en los adolescentes destaca la necesidad de implementar programas de intervención dirigidos a mejorar el estado nutricional de esta población. </p>
+                <p class="coc">Fabio:Implicaciones para la salud a largo plazo: La alta prevalencia de sobrepeso y obesidad en los adolescentes de las escuelas indica que existe un riesgo significativo para la salud a largo plazo.</p>
+            </div>
+        </div>
+        <script>
+            function calculateBMI() {
+            var weight = parseFloat(document.getElementById("weight").value);
+            var height = parseFloat(document.getElementById("height").value);
+            
+            if (isNaN(weight) || isNaN(height) || height <= 0) {
+                document.getElementById("result").innerHTML = "Por favor, ingrese valores válidos.";
+                return;
+            }
+            
+            var bmi = weight / ((height / 100) ** 2);
+            var category;
+            
+            if (bmi < 18.5) {
+                category = "Bajo peso";
+            } else if (bmi < 25) {
+                category = "Peso normal";
+            } else if (bmi < 30) {
+                category = "Sobrepeso";
+            } else {
+                category = "Obesidad";
+            }
+            
+            var result = "Su IMC es: " + bmi.toFixed(2) + "<br>";
+            result += "Categoria: " + category;
+            
+            document.getElementById("result").innerHTML = result;
+            }
+
+        </script>
+</body>
+
+</html>
